@@ -28,6 +28,8 @@ pub type IOHIDDeviceRef = *mut __IOHIDDevice;
 pub type IOHIDElementRef = *mut __IOHIDElement;
 pub type IOHIDValueRef = *mut __IOHIDValue;
 
+pub type IOHIDCallback = extern fn(context: *mut c_void, result: IOReturn, sender: *mut c_void);
+
 pub type IOHIDDeviceCallback = extern fn(context: *mut c_void, result: IOReturn, sender: *mut c_void, device: IOHIDDeviceRef);
 
 pub type IOHIDReportCallback = extern fn(context: *mut c_void, result: IOReturn, sender: *mut c_void, report_type: IOHIDReportType, 
