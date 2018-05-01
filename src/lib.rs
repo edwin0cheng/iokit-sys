@@ -22,6 +22,9 @@ pub use usb::*;
 pub use io_hid_keys::*;
 pub use io_hid_base::*;
 pub use io_hid_manager::*;
+pub use io_hid_element::*;
+pub use io_hid_device::*;
+pub use io_hid_value::*;
 
 mod io_return;
 mod keys;
@@ -31,6 +34,9 @@ mod usb;
 mod io_hid_keys;
 mod io_hid_base;
 mod io_hid_manager;
+mod io_hid_element;
+mod io_hid_device;
+mod io_hid_value;
 
 // exports from <IOKit/IOKitLib.h>
 

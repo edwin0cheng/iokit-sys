@@ -1,7 +1,7 @@
 // exports from <IOKit/hid/IOHIDManager.h>
 
 use libc::c_void;
-use cf::{CFAllocatorRef, CFDictionaryRef};
+use cf::{CFAllocatorRef, CFDictionaryRef, CFArrayRef, CFRunLoopRef, CFStringRef};
 use types::IOOptionBits;
 use io_return::IOReturn;
 use io_hid_base::{IOHIDDeviceCallback, IOHIDReportCallback};
@@ -27,4 +27,7 @@ extern "C" {
     pub fn IOHIDManagerRegisterInputReportCallback(manager: IOHIDManagerRef, callback: IOHIDReportCallback, context: *mut c_void);
     pub fn IOHIDManagerOpen(manager: IOHIDManagerRef, options: IOOptionBits) -> IOReturn;
     pub fn IOHIDManagerClose(manager: IOHIDManagerRef, options: IOOptionBits) -> IOReturn;
+    pub fn IOHIDManagerSetDeviceMatchingMultiple(manager: IOHIDManagerRef, multiple: CFArrayRef) -> IOReturn;
+    pub fn IOHIDManagerScheduleWithRunLoop(manager: IOHIDManagerRef, runLoop: CFRunLoopRef, runLoopMode: CFStringRef) -> IOReturn;
+    pub fn IOHIDManagerUnscheduleFromRunLoop(manager: IOHIDManagerRef, runLoop: CFRunLoopRef, runLoopMode: CFStringRef) -> IOReturn;
 }
